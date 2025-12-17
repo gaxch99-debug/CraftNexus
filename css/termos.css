@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+
+:root {
+    --minecraft-green: #4a7c36;
+    --minecraft-brown: #3b2e1e;
+    --dark-bg: #21301c;
+    --light-text: #f0f0f0;
+    --dark-text: #333;
+    --minecraft-dirt: #5c3d1f;
+    --minecraft-stone: #505a4e;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    font-family: 'Roboto', sans-serif;
+    color: var(--light-text);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #2f3d24;
+    border: 4px solid var(--minecraft-brown);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0,0,0,0.3);
+}
+
+header {
+    text-align: center;
+    border-bottom: 3px solid var(--minecraft-stone);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--light-text);
+    font-size: 2em;
+    text-shadow: 3px 3px 0 var(--minecraft-brown);
+    margin-bottom: 10px;
+}
+
+header p {
+    color: #a0a0a0;
+    font-size: 0.9em;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: var(--minecraft-green);
+    font-size: 1.5em;
+    text-shadow: 2px 2px 0 var(--dark-bg);
+    border-bottom: 2px solid var(--minecraft-stone);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.content-block {
+    background-color: var(--dark-bg);
+    padding: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--minecraft-dirt);
+}
+
+h3 {
+    color: var(--light-text);
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+p, ul {
+    color: #c0c0c0;
+    font-size: 1em;
+}
+
+ul {
+    padding-left: 20px;
+}
+
+ul li {
+    margin-bottom: 10px;
+}
+
+a {
+    color: var(--minecraft-green);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6db356; /* Verde mais claro */
+    text-decoration: underline;
+}
+
+.back-button {
+    display: block;
+    width: fit-content;
+    margin: 20px auto 0;
+    padding: 12px 25px;
+    background-color: var(--minecraft-stone);
+    color: var(--light-text);
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    border: 2px solid var(--minecraft-brown);
+    box-shadow: 3px 3px 0 var(--minecraft-brown);
+    transition: all 0.2s ease;
+}
+
+.back-button:hover {
+    background-color: var(--minecraft-green);
+    transform: translateY(-2px);
+    box-shadow: 5px 5px 0 var(--minecraft-brown);
+}

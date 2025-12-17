@@ -1,0 +1,1936 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:wght@400;700&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    --minecraft-green: #4a7c36; /* Darker green */
+    --minecraft-brown: #3b2e1e; /* Darker brown */
+    --dark-bg: #21301c; /* Darker green tone for background */
+    --light-text: #f0f0f0;
+    --dark-text: #333;
+    --minecraft-dirt: #5c3d1f; /* Darker dirt tone */
+    --minecraft-stone: #505a4e; /* Darker gray-green stone tone */
+}
+
+body {
+    margin: 0;
+    background-color: #2f3d24; /* Darker green for body background */
+    font-family: 'Roboto', sans-serif;
+    color: var(--light-text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+}
+
+/* botao  */
+
+.button-with-icon {
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #4c724e;
+  font-family: "Istok Web", sans-serif;
+  letter-spacing: 1px;
+  padding: 0 12px;
+  text-align: center;
+  width: 120px;
+  height: 40px;
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: normal;
+  border-radius: 3px;
+  outline: none;
+  user-select: none;
+  cursor: pointer;
+  transform: translateY(0px);
+  position: relative;
+  box-shadow:
+    inset 0 30px 30px -15px rgba(255, 255, 255, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.3),
+    inset 0 1px 20px rgba(0, 0, 0, 0),
+    0 3px 0 #33a11100,
+    0 3px 2px rgba(72, 255, 36, 0),
+    0 5px 10px rgba(45, 169, 57, 0),
+    0 10px 20px rgba(0, 0, 0, 0.2),
+    0 0 15px rgba(74, 124, 54, 0.6); /* Adiciona um brilho verde */
+  background: var(--minecraft-green); /* Fundo verde por padrão */
+  color: white;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  transition: 150ms all ease-in-out;
+  border: 2px solid #6db356; /* Borda verde mais clara */
+}
+
+.button-with-icon:hover {
+  background: #52a535; /* Verde mais claro no hover */
+  border-color: #7fcc66;
+  transform: scale(1.05); /* Aumenta o botão no hover */
+  box-shadow: 0 0 25px rgba(82, 165, 53, 0.8); /* Intensifica o brilho */
+}
+
+.button-with-icon .icon {
+  margin-right: 8px;
+  width: 24px;
+  height: 24px;
+  transition: all 0.5s ease-in-out;
+}
+
+.button-with-icon:active {
+  transform: translateY(3px);
+  box-shadow:
+    inset 0 16px 2px -15px rgba(0, 0, 0, 0),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.15),
+    inset 0 1px 20px rgba(0, 0, 0, 0.1),
+    0 0 0 #63f800,
+    0 0 0 2px rgba(255, 255, 255, 0.5),
+    0 0 0 rgba(0, 0, 0, 0),
+    0 0 0 rgba(0, 0, 0, 0);
+}
+
+.button-with-icon:hover .text {
+  transform: translateX(80px);
+}
+.button-with-icon:hover .icon {
+  transform: translate(23px);
+}
+
+.text {
+  transition: all 0.5s ease-in-out;
+}
+
+
+
+/* efeito toltilp */
+
+/* From Uiverse.io by zl306 */ 
+.switch {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 60px;
+  height: 26px;
+}
+
+.toggle {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  image-rendering: pixelated;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAlgAAAEECAYAAAD0wkrNAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAFd0lEQVR4Xu3YMWpbQRhG0ZGdwqAVJqQzRsYIL8aoSUgppKUJvIaYl346+91Csc+Bab52msu/GWMsAwCAzM08AACwjsACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACAmMACAIgJLACA2GaMsczjGsfTeZ4AAK7azx/f52kVFywAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgJjAAgCICSwAgNhmjLHM4xrH03mersrl8jpPAHzA4fAyT7zDfv88T5/adns3T1fl6XE3T6u4YAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxDZjjGUe1ziezvN0VS6X13kC+BIOh5d5WmW/f54n3uGr/cd2ezdPq9zefpunVXYP9/O0igsWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEAxAQWAEBMYAEA/523t7/pqwksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAICYwAIAiAksAIDYZoyxzOMax9N5nq7K5fI6TwB8wOHwMk+8w37/PE+f2nZ7N09X5elxN0+ruGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQ2Y4xlHtf4/evPPAEApJabzTytsnu4n6dVXLAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGICCwAgJrAAAGKbMcYyjwAAfJwLFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBATGABAMQEFgBA7B+FCmkzoT9HAAAAAABJRU5ErkJggg==);
+  background-size: 100% 100%;
+  transition: 0.3s;
+}
+
+.slider:before {
+  box-sizing: border-box;
+  position: absolute;
+  content: "";
+  height: 32px;
+  width: 28px;
+  bottom: 0px;
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAARgAAAFACAYAAABnU2MWAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsEAAA7BAbiRa+0AAAGHaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49J++7vycgaWQ9J1c1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCc/Pg0KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyI+PHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj48cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0idXVpZDpmYWY1YmRkNS1iYTNkLTExZGEtYWQzMS1kMzNkNzUxODJmMWIiIHhtbG5zOnRpZmY9Imh0dHA6Ly9ucy5hZG9iZS5jb20vdGlmZi8xLjAvIj48dGlmZjpPcmllbnRhdGlvbj4xPC90aWZmOk9yaWVudGF0aW9uPjwvcmRmOkRlc2NyaXB0aW9uPjwvcmRmOlJERj48L3g6eG1wbWV0YT4NCjw/eHBhY2tldCBlbmQ9J3cnPz4slJgLAAAEZElEQVR4Xu3cMWojURBF0WpHQpYXOxivYjBerGWhrCf/aesOFpwTvgVcKqptZvYBCLysA8CjCAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCCzPfon7/V2XyfgSVzOp3U6xAUDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwACZbWb2dTzieruv06/y/f2zTvDfvL29rtOvcjmf1ukQFwyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2S2mdnX8Yjr7b5OwJO4nE/rdIgLBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMtvM7Ot4xN/Pr3UCnsTH+591OsQFA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQEZggIzAABmBATICA2QEBsgIDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAmW1m9nUEeAQXDJARGCAjMEBGYICMwAAZgQEyAgNkBAbICAyQERggIzBARmCAjMAAGYEBMgIDZAQGyAgMkBEYICMwQOYfxHAXdb5V9+0AAAAASUVORK5CYII=);
+  background-size: 28px 32px;
+  transition: 0.3s;
+}
+
+.toggle:checked + .slider {
+  background: url(data:image/png;base64,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);
+  background-size: 100% 100%;
+}
+
+.toggle:checked + .slider:before {
+  transform: translateX(32px);
+}
+
+
+
+/* cabeça do header  */
+
+/* From Uiverse.io by Armive */ 
+.boton-minecraft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  background-color: #228b22;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.1s,
+    color 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.boton-minecraft:hover {
+  background-color: black;
+  transform: scale(1.05);
+}
+
+.boton-minecraft svg {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.3s;
+}
+
+.boton-minecraft:hover svg {
+  transform: scale(1.1);
+}
+
+.texto-boton {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 180px;
+  height: 24px;
+  overflow: hidden;
+}
+
+.texto-boton span {
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.texto-boton span:first-child {
+  opacity: 1;
+}
+
+.texto-boton span:nth-child(2),
+.texto-boton span:nth-child(3) {
+  opacity: 0;
+}
+
+.boton-minecraft:hover .texto-boton span:first-child {
+  opacity: 0;
+}
+
+.boton-minecraft:hover .texto-boton span:nth-child(2) {
+  opacity: 1;
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle:checked + .boton-minecraft {
+  background-color: white;
+  color: black;
+}
+
+#toggle:checked + .boton-minecraft .texto-boton span:first-child,
+#toggle:checked + .boton-minecraft .texto-boton span:nth-child(2) {
+  opacity: 0;
+}
+
+#toggle:checked + .boton-minecraft .texto-boton span:nth-child(3) {
+  opacity: 1;
+}
+
+
+
+
+/* Ensure only main section titles use Minecraft font */
+main h2 { 
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px var(--dark-bg);
+}
+
+/* Ensure other h3 tags use Roboto by default, overridden specifically below */
+main h3 {
+    font-family: 'Roboto', sans-serif; 
+    text-shadow: none; /* Removed text-shadow for general h3 */
+}
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0px;
+}
+
+/* efeito toltilp  */
+
+/* Minecraft switch made by: csozi | Website: english.csozi.hu*/
+
+/* The switch - the box around the slider */
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2em;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 1;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+}
+
+.off {
+  position: absolute;
+  content: "";
+  height: 2em;
+  width: 2em;
+  background-color: white;
+  transition: .4s;
+  image-rendering: pixelated;
+  opacity: 1;
+}
+
+.on {
+  position: absolute;
+  content: "";
+  height: 2em;
+  width: 2em;
+  background-color: white;
+  transition: .4s;
+  image-rendering: pixelated;
+  opacity: 0;
+}
+
+.switch input:checked + .slider {
+  background-color: #ccc;
+}
+
+.switch input:focus + .slider {
+  box-shadow: 0 0 1px #ccc;
+}
+
+.switch input:checked ~ .off {
+  transform: translateX(2em);
+}
+
+.switch input:checked ~ .on {
+  transform: translateX(2em);
+  opacity: 1;
+}
+
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1010;
+    width: 100%;
+    background-color: rgba(33, 48, 28, 0.9); /* Using new dark-bg */
+    backdrop-filter: blur(10px);
+    text-transform: capitalize;
+    font-size: 1em;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    image-rendering: pixelated;
+}
+
+.logo h1 {
+    color: white;
+    font-size: 1.8em;
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 2px 2px #111;
+    margin: 0;
+}
+
+                   /* dropdown  */
+.nav-menu {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin-left: 25px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    padding: 8px 12px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-menu a:hover, .dropdown:hover .dropdown-toggle {
+    background-color: var(--minecraft-green);
+    color: white;
+}
+
+.dropdown-toggle i {
+    font-size: 0.8em;
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    /* Alterado para animação com opacidade e visibilidade */
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%; /* Mais espaço do topo */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(33, 48, 28, 0.95); /* Fundo igual ao header */
+    backdrop-filter: blur(10px);
+    list-style: none;
+    padding: 10px 0;
+    border-radius: 8px;
+    min-width: 160px;
+    border: 2px solid var(--minecraft-brown);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: opacity 0.3s ease, visibility 0.3s ease, top 0.3s ease;
+}
+
+.dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 12px 30px;
+    white-space: nowrap;
+    border-radius: 5px; /* Adicionado para o hover */
+}
+
+.dropdown:hover .dropdown-menu, .dropdown:focus-within .dropdown-menu {
+    visibility: visible;
+    opacity: 1;
+    top: 140%;
+}
+
+
+/* Main hero */
+.hero {
+    height: 85vh;
+    background: url('../img/img-mine.jpg') no-repeat center center/cover; /* Changed to local placeholder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 15px;
+     transition: all 0.3s ease;
+}
+
+.hero-content:hover {
+       transform: translateY(-5px);
+      
+}
+
+.hero h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-family: 'Press Start 2P', cursive;
+}
+
+/* Cor de fundo padrão para o botão Jogar */
+.nav-menu .jogar {
+    background-color: var(--minecraft-green);
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 40px;
+}
+
+.btn {
+    background-color: var(--minecraft-green);
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #4a7c36 ; /* Darker green on hover */
+}
+
+
+/* General Section Styling */
+section {
+    padding: 5px 0;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: var(--dark-bg);
+    border: 3px solid var(--minecraft-brown);
+    border-radius: 8px;
+    box-shadow: 6px 6px 0px var(--minecraft-brown), 
+                12px 12px 0px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-10px);
+  
+                
+}
+
+section h2 {
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: var(--minecraft-green);
+    text-shadow: 3px 3px var(--minecraft-brown);
+    transition: color 0.4s ease, text-shadow 0.4s ease; /* Adiciona transição suave */
+}
+
+/* Efeito dinâmico para os títulos h2 no hover da seção */
+section:hover h2 {
+    color: var(--light-text); /* Muda a cor do texto para branco */
+    text-shadow: 4px 4px 0 var(--minecraft-green); /* Inverte a cor da sombra */
+}
+
+/* Updates & News Section */
+.updates-news {
+    background-color: #2b3a27; /* Darker green tone */
+    border-color: #4a7c36; /* New green for border */
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 0px;
+    margin-bottom: 30px;
+}
+
+
+.p5 {
+    padding: 0px 11px;
+}
+
+.quebra {
+    padding: 0px 20px;
+}
+
+.news-item {
+    background-color: #364730; /* Darker green tone for item */
+    border: 2px solid var(--minecraft-brown);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: left;
+    box-shadow: 4px 4px 0 var(--minecraft-brown);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    cursor: pointer;
+}
+
+.news-item:hover {
+    transform: translateY(-10px) scale(1.03);
+    border-color: var(--minecraft-green);
+    box-shadow: 8px 12px 20px rgba(0,0,0,0.3), 4px 4px 0 var(--minecraft-green);
+}
+
+.news-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--minecraft-brown);
+    transition: transform 0.3s ease-out;
+}
+
+.news-item h3 {
+    font-size: 1.4em;
+    margin: 15px;
+    color: var(--minecraft-green);
+    font-family: 'Roboto', sans-serif; /* Changed to Roboto */
+    text-shadow: none;
+}
+
+.news-item:hover img {
+    transform: scale(1.1);
+}
+
+.news-item p {
+    font-size: 0.95em;
+    margin: 0 15px 15px;
+    color: var(--light-text);
+    line-height: 1.6;
+    min-height: 80px; /* Adjust as needed */
+    overflow: hidden; /* Hide overflow if text is too long */
+    text-overflow: ellipsis; /* Add ellipsis for overflow */
+}
+
+.news-item .read-more {
+     display: inline-block;
+    background-color: var(--minecraft-green);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.news-item .read-more:hover {
+    background-color: #3a602b; /* Darker green on hover */
+}
+
+/* NEW RULE */
+.news-item-actions {
+    display: flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+    padding-bottom: 15px; /* Add some padding at the bottom */
+}
+
+/* Tutorials Section */
+
+/* efeito  */
+
+/* From Uiverse.io by joe-watson-sbf */ 
+/* Container igual ao card original */
+.tutorial-expand {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  height: 470px;
+}
+
+.panel {
+  flex: 1;
+  background: #303030;
+  border: 2px solid #2E7D32;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: flex 0.4s ease;
+  overflow: hidden;
+}
+
+.panel:hover {
+  flex: 2;
+}
+
+/* CONTEÚDO INTERNO */
+.panel .inner {
+  opacity: 1;
+  transition: transform .4s ease; /* Mantém a transição suave */
+  text-align: center;
+  transform: translateY(0);
+  display: flex; /* Habilita o Flexbox */
+  flex-direction: column; /* Organiza os itens em coluna */
+  height: 100%; /* Faz o container interno ocupar toda a altura do painel */
+}
+
+.panel:hover .inner {
+  opacity: 1;
+  transform: scale(1.02); /* Adiciona um leve zoom no conteúdo ao passar o mouse */
+}
+
+/* IMAGEM */
+.panel img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-bottom: 2px solid #2E7D32;
+}
+
+/* TÍTULO */
+.panel h3 {
+  color: #41C265;
+  margin: 10px 0;
+}
+
+/* TEXTO */
+.panel p {
+  flex-grow: 1; /* Faz o parágrafo ocupar o espaço disponível, empurrando o botão para baixo */
+  color: #e1ffe7;
+  font-size: 0.9em;
+}
+
+/* BOTÃO */
+.panel .watch-now {
+  align-self: center; /* Centraliza o botão no container flex */
+  margin-bottom: 15px; /* Adiciona uma margem inferior para espaçamento */
+  display: inline-block;
+  background: #3B9A3C;
+  padding: 8px 15px;
+  color: white;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.panel .watch-now:hover {
+  background: #2E7D32;
+}
+
+
+/* Game History Section */
+
+/* Game History Section */
+.historia-game {
+    display: flex;
+    align-items: flex-start; /* melhor alinhamento em telas pequenas */
+    gap: 40px; /* espaço entre imagem e texto */
+    margin-bottom: 5vh;
+    flex-wrap: wrap; /* permite que o conteúdo quebre em telas menores */
+}
+
+.historia-game p {
+    text-align: left;
+    font-size: 1.50vw;
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.4s ease, color 0.4s ease; /* Adiciona transição suave */
+    color: #c0c0c0; /* Um cinza claro para o estado inicial */
+}
+
+.historia-game img {
+    max-width: 600px;
+    cursor: pointer;
+    width: 100%;
+    height: auto;
+    border: 2px solid var(--minecraft-green);
+    border-radius: 8px;
+    box-shadow: 5px 5px 0px var(--minecraft-brown);
+    image-rendering: pixelated;
+    flex: 1;
+    min-width: 250px;
+    transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.4s ease; /* Transição aprimorada */
+}
+
+.historia-game:hover img {
+    transform: scale(1.04) rotate(-1.5deg); /* Aumenta e rotaciona a imagem */
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4), 8px 8px 0px var(--minecraft-green); /* Sombra mais pronunciada */
+}
+
+.historia-game:hover p {
+    transform: translateY(-5px); /* Eleva o texto levemente */
+    color: var(--light-text); /* Deixa o texto mais claro */
+}
+
+/* Media Queries para telas menores */
+@media (max-width: 1024px) {
+    .historia-game {
+        gap: 20px;
+    }
+    .historia-game p {
+        font-size: 2vw;
+        margin: 0;
+    }
+     .historia-game img {
+        max-width: 100%;
+        height: 45vh;
+      
+    }
+}
+
+@media (max-width: 768px) {
+    .historia-game {
+        flex-direction: column; /* empilha imagem e texto */
+        align-items: center;
+        text-align: center;
+    }
+    .historia-game p {
+        font-size: 16px;
+          padding: 1% 1% 0% 2%;
+    }
+    .historia-game img {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    .historia-game p {
+        font-size: 14px;
+      
+    }
+}
+
+
+
+/* Player Builds Section (Carousel) */
+.player-builds {
+    background-color: #2b3a27; /* Darker green tone */
+    border-color: #4a7c36; /* New green for border */
+    position: relative; /* For carousel navigation */
+}
+
+.builds-carousel {
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; /* For smoother scrolling on iOS */
+    padding: 20px 0;
+    gap: 30px;
+    justify-content: flex-start; /* Align items to the start */
+    margin-top: 40px;
+}
+
+.builds-carousel::-webkit-scrollbar {
+    height: 12px;
+}
+
+.builds-carousel::-webkit-scrollbar-track {
+    background: var(--dark-bg);
+    border-radius: 10px;
+}
+
+.builds-carousel::-webkit-scrollbar-thumb {
+    background: var(--minecraft-green);
+    border-radius: 10px;
+    border: 2px solid var(--dark-bg);
+}
+
+.builds-carousel::-webkit-scrollbar-thumb:hover {
+    background: #3a602b; /* Hover verde escuro para o tema padrão */
+}
+
+body.dark-mode .builds-carousel::-webkit-scrollbar-thumb:hover {
+    background: #333; /* Hover cinza escuro para o tema escuro */
+}
+
+.build-card {
+    flex: 0 0 auto; /* Prevent cards from shrinking */
+    width: 350px; /* Fixed width for cards */
+    background-color: #364730; /* Darker green tone for item */
+    border: 2px solid var(--minecraft-green);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 5px 5px 0px var(--minecraft-brown);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.build-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 7px 7px 0px var(--minecraft-brown);
+}
+
+.build-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-bottom: 2px solid var(--minecraft-green);
+    image-rendering: pixelated;
+}
+
+.build-card h3 {
+    font-size: 1.3em;
+    margin: 15px 0 10px;
+    color: var(--light-text);
+    font-family: 'Roboto', sans-serif; /* Changed to Roboto */
+    text-shadow: none;
+}
+
+.build-card p {
+    font-size: 0.9em;
+    margin: 0 15px 15px;
+    color: #c0c0c0;
+    line-height: 1.4;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 10px;
+    pointer-events: none; /* Allow clicks to pass through to carousel */
+}
+
+.nav-button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 15px 10px;
+    cursor: pointer;
+    font-size: 1.5em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    pointer-events: all; /* Re-enable clicks for buttons */
+}
+
+.nav-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+
+
+
+
+/* Footer */
+footer {
+    background-color: var(--dark-bg); /* Using new dark-bg */
+    color: #a0a0a0;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+  
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centraliza os itens */
+  gap: 20px; /* Adiciona um espaçamento entre os itens */
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+    flex: 1;
+    flex: 1 1 200px; /* Permite crescer e encolher, com base de 200px */
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    color: #ffffff;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px #111;
+    transition: all 0.3s ease;
+}
+
+.footer-section h3:hover {
+    color:  #ffffff9c;;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+}
+
+.footer-section ul li a  {
+    color: #a0a0a0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 0.6em;
+}
+
+
+
+
+.footer-section ul li a:hover {
+    color: var(--minecraft-green);
+}
+
+.socials {
+    display: flex;
+}
+
+.socials a {
+    margin-right: 45px;
+    margin-top: 10px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+    text-align: center;
+    color: #a19b9b;
+}
+
+.socials a:hover {
+    color: var(--minecraft-green);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid #444;
+    margin-top: 10px;
+    transition: all 0.5s ease;
+}
+
+.footer-bottom:hover {
+     color:  #ffffff;;
+}
+
+/* Torch */
+.torch-container {
+    position: fixed;
+    bottom:10px;
+    right: 20px;
+    z-index: 1000;
+}
+
+/* From Uiverse.io by 00Kubi - with slight modifications */
+.torch-container .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.torch-container .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin: 0;
+}
+
+.simple-text {
+    position: absolute;
+    bottom: -60px;
+    width: 120px;
+    text-align: center;
+    color: #ffd700;
+    font-size: 16pt;
+    font-weight: 800;
+    font-family: monospace;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    transition: all 0.3s ease;
+}
+
+.torch {
+    display: flex;
+    justify-content: center;
+    height: 150px;
+    transition: all 0.3s ease;
+}
+
+.head,
+.stick {
+    position: absolute;
+    width: 30px;
+    transform-style: preserve-3d;
+    transform: rotateX(-30deg) rotateY(45deg);
+}
+
+.stick {
+    position: relative;
+    height: 120px;
+}
+
+.face {
+    position: absolute;
+    transform-style: preserve-3d;
+    width: 30px;
+    height: 30px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 50% 50%;
+    background-color: #000000;
+}
+
+.top {
+    transform: rotateX(90deg) translateZ(15px);
+}
+
+.left {
+    transform: rotateY(-90deg) translateZ(15px);
+}
+
+.right {
+    transform: rotateY(0deg) translateZ(15px);
+}
+
+.top div,
+.left div,
+.right div {
+    width: 102%;
+    height: 102%;
+}
+
+.top div:nth-child(1),
+.left div:nth-child(3),
+.right div:nth-child(3) {
+    background-color: #ffff97aa;
+}
+
+.top div:nth-child(2),
+.left div:nth-child(1),
+.right div:nth-child(1) {
+    background-color: #ffd800aa;
+}
+
+.top div:nth-child(3),
+.left div:nth-child(4),
+.right div:nth-child(4) {
+    background-color: #ffffffaa;
+}
+
+.top div:nth-child(4),
+.left div:nth-child(2),
+.right div:nth-child(2) {
+    background-color: #ff8f00aa;
+}
+
+.side {
+    position: absolute;
+    width: 30px;
+    height: 120px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: repeat(8, 12.5%);
+    cursor: pointer;
+    translate: 0 12px;
+}
+
+.side-left {
+    transform: rotateY(-90deg) translateZ(15px) translateY(8px);
+}
+
+.side-right {
+    transform: rotateY(0deg) translateZ(15px) translateY(8px);
+}
+
+.side-left div,
+.side-right div {
+    width: 103%;
+    height: 103%;
+}
+
+.side div:nth-child(1) {
+    background-color: #443622;
+}
+
+.side div:nth-child(2),
+.side div:nth-child(2) {
+    background-color: #2e2517;
+}
+
+.side div:nth-child(3),
+.side div:nth-child(5) {
+    background-color: #4b3b23;
+}
+
+.side div:nth-child(4),
+.side div:nth-child(10) {
+    background-color: #251e12;
+}
+
+.side div:nth-child(6) {
+    background-color: #292115;
+}
+
+.side div:nth-child(7) {
+    background-color: #4b3c26;
+}
+
+.side div:nth-child(8) {
+    background-color: #292115;
+}
+
+.side div:nth-child(9) {
+    background-color: #4b3a21;
+}
+
+.side div:nth-child(11),
+.side div:nth-child(15) {
+    background-color: #3d311d;
+}
+
+.side div:nth-child(12) {
+    background-color: #2c2315;
+}
+
+.side div:nth-child(13) {
+    background-color: #493a22;
+}
+
+.side div:nth-child(14) {
+    background-color: #2b2114;
+}
+
+.side div:nth-child(16) {
+    background-color: #271e10;
+}
+
+.light-effect {
+    position: absolute;
+    top: -20px;
+    left: -35px;
+    width: 100px;
+    height: 100px;
+    background: radial-gradient(
+        circle at center,
+        rgba(255, 223, 89, 0.9) 0%,
+        rgba(255, 183, 43, 0.4) 30%,
+        transparent 70%
+    );
+    filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.particles {
+    position: absolute;
+    top: -10px;
+    left: -20px;
+    width: 70px;
+    height: 70px;
+    pointer-events: none;
+}
+
+.particles span {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #ffd700;
+    border-radius: 50%;
+    opacity: 0;
+    pointer-events: none;
+    box-shadow: 0 0 10px #ffd700;
+    filter: blur(1px);
+}
+
+@keyframes particleFloat {
+    0% {
+        transform: translate(0, 0) scale(1) rotate(0deg);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(calc(var(--x) * 20px), calc(var(--y) * -40px)) scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.particles span:nth-child(1) {
+    --x: 1;
+    --y: 1;
+}
+
+.particles span:nth-child(2) {
+    --x: -1;
+    --y: 1;
+}
+
+.particles span:nth-child(3) {
+    --x: 0.5;
+    --y: 1;
+}
+
+.particles span:nth-child(4) {
+    --x: -0.5;
+    --y: 1;
+}
+
+.particles span:nth-child(5) {
+    --x: 0.7;
+    --y: 1;
+}
+
+.particles span:nth-child(6) {
+    --x: -0.7;
+    --y: 1;
+}
+
+.particles span:nth-child(7) {
+    --x: 0.3;
+    --y: 1;
+}
+
+.particles span:nth-child(8) {
+    --x: -0.3;
+    --y: 1;
+}
+
+.torch-container .container input:checked~.torch .light-effect {
+    opacity: 1;
+    animation: flicker 4s infinite;
+}
+
+.torch-container .container input:checked~.torch .particles span {
+    animation: particleFloat 2s infinite;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(5) {
+    animation-delay: 0.8s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(6) {
+    animation-delay: 1s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(7) {
+    animation-delay: 1.2s;
+}
+
+.torch-container .container input:checked~.torch .particles span:nth-child(8) {
+    animation-delay: 1.4s;
+}
+
+@keyframes flicker {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    25%,
+    75% {
+        opacity: 0.9;
+    }
+}
+
+.torch-container .container:hover .torch {
+    transform: scale(1.05) rotate(2deg);
+    transition: all 0.3s ease;
+}
+
+.torch-container .container:hover .simple-text {
+    transform: scale(1.1);
+    text-shadow:
+        0 0 15px rgba(255, 215, 0, 0.7),
+        0 0 30px rgba(255, 215, 0, 0.4);
+    letter-spacing: 2px;
+}
+
+.torch-container .container input:checked~.torch .face {
+    filter: drop-shadow(0px 0px 8px rgb(255, 255, 255)) drop-shadow(0px 0px 20px rgba(255, 237, 156, 0.8)) drop-shadow(0px 0px 40px rgba(255, 227, 101, 0.5));
+    transition: filter 0.3s ease;
+}
+
+.torch-container .container input:checked~.torch .side {
+    filter: brightness(1.3);
+    transition: filter 0.3s ease;
+}
+
+.glow-effect {
+    position: absolute;
+    top: -30px;
+    left: -45px;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle at center,
+            rgba(255, 160, 0, 0.4) 0%,
+            rgba(255, 120, 0, 0.2) 30%,
+            transparent 70%);
+    filter: blur(15px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    animation: glowPulse 3s infinite;
+}
+
+.smoke {
+    position: absolute;
+    top: -20px;
+    left: -10px;
+    width: 50px;
+    height: 50px;
+    pointer-events: none;
+}
+
+.smoke span {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    filter: blur(2px);
+    opacity: 0;
+    pointer-events: none;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.5;
+    }
+}
+
+@keyframes smokeRise {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: translate(calc(var(--x) * 30px), calc(var(--y) * -60px)) scale(3);
+        opacity: 0;
+    }
+}
+
+.smoke span:nth-child(1) {
+    --x: 0.5;
+    --y: 1;
+}
+
+.smoke span:nth-child(2) {
+    --x: -0.5;
+    --y: 1;
+}
+
+.smoke span:nth-child(3) {
+    --x: 0.2;
+    --y: 1;
+}
+
+.smoke span:nth-child(4) {
+    --x: -0.2;
+    --y: 1;
+}
+
+.torch-container .container input:checked~.torch .smoke span {
+    animation: smokeRise 3s infinite;
+}
+
+.torch-container .container input:checked~.torch .smoke span:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.torch-container .container input:checked~.torch .smoke span:nth-child(2) {
+    animation-delay: 0.8s;
+}
+
+.torch-container .container input:checked~.torch .smoke span:nth-child(3) {
+    animation-delay: 1.6s;
+}
+
+.torch-container .container input:checked~.torch .smoke span:nth-child(4) {
+    animation-delay: 2.4s;
+}
+
+.torch-container .container input:checked~.torch .glow-effect {
+    opacity: 1;
+}
+
+.face div {
+    transition: all 0.3s ease;
+}
+
+.side div {
+    transition: all 0.3s ease;
+}
+
+.torch-container .container input:checked~.torch .side div {
+    filter: brightness(1.3);
+    box-shadow: inset 0 0 5px rgba(255, 183, 43, 0.2);
+}
+
+
+/* Scroll Animations */
+.hidden {
+    opacity: 0;
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.hidden.slide-in-left {
+    transform: translateX(-50px);
+}
+.hidden.slide-in-right {
+    transform: translateX(50px);
+}
+.hidden.fade-in {
+    transform: translateY(20px);
+}
+
+.visible {
+    opacity: 1;
+    transform: translateX(0) translateY(0);
+}
+
+
+
+  
+
+@media (max-width: 1024px) {
+
+     .history-content {
+        display: flex;
+        flex-direction: column; /* Empilha a imagem e o texto */
+          
+    }
+    .history-image, .history-text {
+     
+    
+        max-width: 60%; /* Faz os itens ocuparem quase toda a largura */
+    }
+
+
+    .history-text {
+        text-align: center;
+        margin-top: -80px;
+        font-size: 1.1em;
+}
+
+
+    .hero h2 {
+        font-size: 2.3em;
+    }
+    section h2 {
+        font-size: 2em;
+    }
+    .builds-carousel {
+        justify-content: flex-start;
+        padding: 20px 10px;
+    }
+    .build-card {
+        width: 300px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+    }
+
+
+    .nav-menu {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 20px;
+        width: 100%;
+    }
+
+    .nav-menu li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .dropdown .dropdown-menu {
+        position: static;
+        display: none;
+        width: 100%;
+        background-color: #444;
+    }
+
+    .dropdown:focus-within .dropdown-menu {
+        display: block;
+    }
+
+
+    .hero h2 {
+        font-size: 2.5em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    section h2 {
+        font-size: 2em;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+       gap: 1px;
+    
+    }
+
+    .footer-section {
+        text-align: center;
+        margin-bottom: -50px;
+         
+    }
+
+    .socials {
+        justify-content: center;
+       
+    }
+
+    /* Responsive adjustments for new sections */
+    .news-grid, .tutorial-grid {
+        grid-template-columns: 1fr; /* Stack items vertically on small screens */
+    }
+
+    .news-item, .tutorial-item, .build-card {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .player-builds .container {
+        padding: 0;
+    }
+
+    .builds-carousel {
+        padding: 20px 0;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    
+    /* Ajuste para o menu hambúrguer (vertical) */
+    .hamburger-nav-menu ul {
+        flex-direction: column; /* Garante que os itens fiquem na vertical */
+        padding: 10px; /* Mantém um preenchimento para espaçamento */
+    }
+
+    /* Garante que o item 'Jogar' seja um container de posicionamento */
+    .hamburger-nav-menu #nav-item-jogar {
+        position: relative; /* Essencial para o posicionamento absoluto do filho */
+    }
+
+    /* Estilos para o submenu 'Jogar' dentro do menu hambúrguer */
+    .hamburger-nav-menu .dropdown-menu {
+        position: absolute;
+        top: 100%; /* Alinha o topo do submenu com o topo do item 'Jogar' */
+        left: -55.5%; /* Posiciona o submenu à direita do item 'Jogar' */
+        margin-top: -63px;
+        /* Restaura a aparência de caixa do menu */
+        background-color: rgba(33, 48, 28, 0.95);
+        backdrop-filter: blur(10px);
+        border: 2px solid var(--minecraft-brown);
+        border-radius: 8px;
+        padding: 10px;
+        min-width: 160px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        display: none; /* Escondido por padrão */
+   
+    }
+
+    /* Mostra o submenu quando o mouse está sobre o item 'Jogar' */
+    .hamburger-nav-menu #nav-item-jogar:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Garante que os itens do submenu fiquem na vertical */
+    .hamburger-nav-menu .dropdown-menu li {
+        margin: 0;
+        padding: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo h1 {
+        font-size: 1.5em;
+    }
+    .hero h2 {
+        font-size: 2em;
+    }
+    .hero p {
+        font-size: 1em;
+    }
+    .btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+    section {
+        padding: 40px 0;
+        margin-bottom: 20px;
+    }
+    section h2 {
+        font-size: 1.8em;
+    }
+    .news-item h3, .tutorial-item h3, .build-card h3 {
+        font-size: 1.1em;
+    }
+}
+/* From Uiverse.io by ahmedyasserdev */ 
+.burger {
+  display: inline-block;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.burger span {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #ffffff;
+  margin: 6px 0;
+  transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+    opacity 0.3s ease;
+}
+
+#burger-checkbox {
+  display: none;
+}
+
+#burger-checkbox:checked + .burger span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+#burger-checkbox:checked + .burger span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+#burger-checkbox:checked + .burger span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Hamburger Menu Content Styling */
+.hamburger-nav-menu {
+  display: none; /* Esconde o menu por padrão */
+  position: absolute;
+  top: 84px; /* Aumenta a distância do topo */
+  right: 0px;
+  background-color: rgba(33, 48, 28, 0.95);
+  backdrop-filter: blur(10px);
+  border: 2px solid var(--minecraft-brown);
+  border-radius: 8px;
+  padding: 0px;
+  z-index: 999;
+  min-width: 240px; /* Define uma largura mínima */
+  opacity: 0; /* Inicia transparente para a animação */
+  transform: translateY(-15px); /* Inicia um pouco acima para a animação */
+  transition: opacity 0.3s ease-out, transform 0.3s ease-out; /* Animação suave */
+}
+
+.hamburger-nav-menu.active {
+  display: block; /* Mostra o menu quando a classe 'active' está presente */
+  opacity: 1; /* Torna visível */
+  transform: translateY(0); /* Move para a posição final */
+}
+
+/* Estilização da lista e itens dentro do menu */
+.hamburger-nav-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espaço entre os itens */
+}
+
+.hamburger-nav-menu ul li a {
+  color: var(--light-text);
+  text-decoration: none;
+        font-size: 1.2em;
+  display: block;
+  padding: 10px;
+  position:relative;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+  border: 1px solid transparent;
+        width: 100%; /* Garante que o link ocupe toda a largura */
+        box-sizing: border-box; /* Inclui padding na largura total */
+}
+
+.hamburger-nav-menu ul li a:hover {
+  background-color: var(--minecraft-green);
+  border-color: var(--light-text);
+}
+
+/* Centraliza o switch dentro do menu hambúrguer */
+.switch-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 5px; /* Adiciona um pequeno espaço acima */
+    padding-bottom: 10px; /* Adiciona o espaçamento inferior solicitado */
+}
+
+/* Reescrevendo variáveis para o dark-mode */
+body.dark-mode {
+    --minecraft-green: #555555;
+    --minecraft-brown: #222222;
+    --dark-bg: #1a1a1a;
+    --light-text: #f5f5f5;
+    --dark-text: #cccccc;
+    --minecraft-dirt: #444444;
+    --minecraft-stone: #666666;
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+/* Ajustes específicos para elementos no dark mode */
+body.dark-mode header {
+    background-color: rgba(18, 18, 18, 0.9);
+}
+body.dark-mode .hamburger-nav-menu {
+    background-color: rgba(26, 26, 26, 0.95);
+}
+
+/* Ajustes para o botão da seção hero no dark mode */
+body.dark-mode .button-with-icon {
+    background: var(--minecraft-stone);
+    border-color: #444;
+    box-shadow: 0 0 15px rgba(100, 100, 100, 0.4);
+}
+
+body.dark-mode .button-with-icon:hover {
+    background: #222;
+    border-color: #666;
+    box-shadow: 0 0 25px rgba(150, 150, 150, 0.6);
+}
+
+/* Ajustes para os botões "Leia Mais" e "Assista Agora" */
+body.dark-mode .news-item .read-more,
+body.dark-mode .panel .watch-now {
+    background-color: var(--minecraft-stone); /* Cinza para o estado padrão */
+}
+
+body.dark-mode .news-item .read-more:hover,
+body.dark-mode .panel .watch-now:hover {
+    background-color: #222; /* Preto/cinza escuro para o hover */
+}
+
+/* Ajustes para os botões de navegação do carrossel no dark mode */
+body.dark-mode .nav-button:hover {
+    background-color: #111;
+    border: 1px solid #555;
+}
+
+body.dark-mode .boton-minecraft {
+    background-color: #333;
+}
+
+body.dark-mode .boton-minecraft:hover {
+    background-color: #111;
+}
+
+body.dark-mode .nav-menu a:hover, 
+body.dark-mode .dropdown:hover .dropdown-toggle,
+body.dark-mode .nav-menu .jogar {
+    background-color: var(--minecraft-green);
+}
+
+body.dark-mode .dropdown-menu {
+    background-color: rgba(26, 26, 26, 0.95);
+    border-color: var(--minecraft-brown);
+}
+
+body.dark-mode section {
+    background-color: var(--dark-bg);
+    border-color: var(--minecraft-brown);
+    box-shadow: 6px 6px 0px var(--minecraft-brown), 
+                12px 12px 0px rgba(0,0,0,0.5);
+}
+
+body.dark-mode section h2 {
+    color: #999;
+    text-shadow: 3px 3px var(--minecraft-brown);
+}
+
+body.dark-mode .updates-news,
+body.dark-mode .player-builds {
+    background-color: #202020;
+    border-color: #444;
+}
+
+body.dark-mode .news-item,
+body.dark-mode .build-card {
+    background-color: #2a2a2a;
+    border-color: var(--minecraft-brown);
+    box-shadow: 4px 4px 0 var(--minecraft-brown);
+}
+
+body.dark-mode .news-item h3 {
+    color: #999;
+}
+
+body.dark-mode .panel {
+    background: #252525;
+    border-color: #444;
+}
+
+body.dark-mode .panel h3 {
+    color: #888;
+}
+
+body.dark-mode .panel p {
+    color: #ccc;
+}
+
+body.dark-mode .historia-game:hover img {
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.6), 8px 8px 0px #555;
+}
+
+body.dark-mode footer {
+    background-color: var(--dark-bg);
+}

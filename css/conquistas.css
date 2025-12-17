@@ -1,0 +1,131 @@
+/* Container principal para centralizar o conteúdo */
+.achievements-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Estilo do Título */
+.achievements-title {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2em;
+    color: var(--minecraft-green);
+    text-shadow: 3px 3px var(--minecraft-brown);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .achievements-title {
+        font-size: 1.8em;
+    }
+}
+
+.carousel-wrapper {
+  width: 100%;
+  overflow: hidden;
+}
+
+.carousel-row {
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: slide 18s linear infinite;
+}
+
+.track.reverse {
+  animation-direction: reverse;
+}
+
+.track-inner {
+  display: flex;
+}
+
+.card {
+  width: 200px; /* Largura fixa */
+  height: 200px; /* Altura fixa */
+  margin-right: 16px;
+  background: #2e2e2e;
+  border: 3px solid #6b4f2a;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 #3a2a15;
+  display: flex;
+  flex-direction: column; /* Organiza imagem e texto verticalmente */
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.1rem;
+  overflow: hidden; /* Garante que nada saia do card */
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 70%; /* Imagem ocupa 70% da altura */
+  object-fit: contain; /* Garante que o ícone caiba sem distorcer */
+  padding: 10px;
+  box-sizing: border-box;
+  image-rendering: pixelated; /* Mantém o estilo pixelado */
+}
+
+.card .card-title {
+  height: 30%; /* Título ocupa 30% da altura */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8em;
+  padding: 0 5px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .card {
+    min-width: 170px;
+    height: 110px;
+  }
+
+  .card .card-title {
+    font-size: 0.7em;
+  }
+}
+
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Botão para voltar */
+.back-home-button {
+    display: inline-block;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    padding: 15px 30px;
+    background-color: var(--minecraft-green);
+    color: var(--light-text);
+    text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1.2em;
+    border: 3px solid var(--minecraft-brown);
+    border-radius: 8px;
+    box-shadow: 6px 6px 0 var(--minecraft-brown);
+    text-transform: uppercase;
+    transition: all 0.1s ease-in-out;
+}
+
+.back-home-button:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 var(--minecraft-brown);
+    cursor: pointer;
+}

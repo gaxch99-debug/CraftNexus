@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/suporte.css">
+    <title>Central de Suporte - MundoCraft</title>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1><i class="fas fa-headset"></i> Central de Suporte</h1>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Seção de Perguntas Frequentes (FAQ) -->
+            <section class="support-section">
+                <h2><i class="fas fa-question-circle"></i> Perguntas Frequentes</h2>
+                <div class="faq-item">
+                    <h3>Como posso me juntar ao servidor?</h3>
+                    <p>Para entrar no nosso servidor, adicione o seguinte endereço IP na sua lista de servidores multiplayer: <strong>jogar.mundocraft.com</strong></p>
+                </div>
+                <div class="faq-item">
+                    <h3>Quais são as regras principais?</h3>
+                    <p>Nossas regras principais são: sem griefing, sem uso de cheats ou hacks, e respeito a todos os jogadores. Para a lista completa, visite nossa página de comunidade.</p>
+                </div>
+            </section>
+
+            <!-- Seção do Formulário de Contato -->
+            <section class="support-section">
+                <h2><i class="fas fa-envelope"></i> Envie uma Mensagem</h2>
+                <form class="contact-form" action="#" method="POST">
+                    <div class="form-group">
+                        <label for="name">Seu Nick no Jogo:</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Seu E-mail:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Assunto:</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Sua Mensagem:</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Ticket</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 MundoCraft. Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
